@@ -1,0 +1,13 @@
+int lancer_des();
+void afficher_des(int des[]);
+void tri_tableau(int des[]);
+int brelant(int des[]);
+int carre(int des[]);
+int yams(int des[]);
+void checkMilieuPartie(int* scoreA, int* scoreB);
+int check_doublons(int des[]);
+int chance(int des[]);
+void lancer_joueur(int des[]);
+int petite_suite(int des[]);
+int grande_suite(int des[]);
+int tour();
