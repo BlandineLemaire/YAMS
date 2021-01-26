@@ -253,12 +253,12 @@ int yams(int des[]) {
 
 int check_doublons(int des[])
 {
-    int* check = 0;
+    int check = 0;
 
     for (int i = 0; i < NB_DES - 1; i++) {
         for (int j = i + 1; j < NB_DES; j++) {
             if (des[i] == des[j]) {
-                check == 1;
+                check = 1;
             }
         }
     }
@@ -351,10 +351,12 @@ int grande_suite(int des[])
 */
 
 void checkMilieuPartie(int* scoreA, int* scoreB) {
-    if (scoreA >= 63) {
+    int* a = scoreA;
+    int* b = scoreB;
+    if (a  > 63) {
         scoreA += 35;
     }
-    if (scoreB >= 63) {
+    if (b > 63) {
         scoreB += 35;
     }
 }
@@ -468,3 +470,26 @@ int lancer_joueur() {
     score = checkFigure(des);
     return score;
 }
+/*
+void save(char* nom, int scorePartie) {
+    int num;
+    FILE* fichier;
+    fichier = fopen("D:\BSI\04 - Language C avancé\Projet Yams\projectYams\program.txt", "w");
+
+    if (fichier == NULL)
+    {
+        printf("Erreur! impossible de sauvegarder votre score");
+        exit(1);
+    }
+    // obtention de la date
+    time_t t;
+    time(&t);
+    fprintf(fichier, "------------------------------------------------------------");
+    // Ecriture de la date
+    fprintf(fichier, "Date de la partie : %s", ctime(&t));
+    // Ecriture du nom du gagnant
+    fprintf(fichier, "Gagnant : %s", nom);
+    // Ecrtiture du score de la partie :
+    fprintf(fichier, "score de la partie : %d", scorePartie);
+    fclose(fichier);
+}*/

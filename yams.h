@@ -12,3 +12,4 @@ int lancer_joueur();
 int petite_suite(int des[]);
 int grande_suite(int des[]);
 int tour();
+void save(char* nom, int scorePartie);
