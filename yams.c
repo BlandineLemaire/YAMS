@@ -143,59 +143,135 @@ int carre(int des[]) {
 
 int full(int des[]) {
     int score = 0;
-    int a = 0, b = 0, c = 0, d = 0, e = 0, f = 0;
-    int g = 0, h = 0, i = 0, j = 0, k = 0;
-    for (int i = 0; i < NB_DES; ++i) {
-        switch (des[i]) {
-            case 1:
-                ++a;
-                if (a == 3) {
-                    printf("Carre of 1\n");
-                    score = 25;
+    if(brelant(des) == 3) {
+        int tmp = 0;
+        int des1 = 0;
+        int des2 = 0;
+        for (int i = 0; i < 5; i++) {
+            if (des[i] != 1) {
+                if (tmp == 1) {
+                    des2 = des[i];
                 }
-                break;
-            case 2:
-                ++b;
-                if (b == 5) {
-                    printf("Carre of 2\n");
-                    score = 25;
-                }
-                break;
-            case 3:
-                ++c;
-                if (c == 5) {
-                    printf("Carre of 3\n");
-                    score = 25;
-                }
-                break;
-            case 4:
-                ++d;
-                if (d == 5) {
-                    printf("Carre of 4\n");
-                    score = 25;
-                }
-                break;
-            case 5:
-                ++e;
-                if (e == 5) {
-                    printf("Carre of 5\n");
-                    score = 25;
-                }
-                break;
-            case 6:
-                ++f;
-                if (a == 5) {
-                    printf("Carre of 6\n");
-                    score = 25;
-                }
-                break;
+                des1 = des[i];
+                tmp = 1;
+            }
         }
+        if (des1 == des2) {
+            score = 25;
+        } else {
+            score = 0;
+        }
+    }else{
+        score = 0;
     }
-    //printf("1 : %d\n2 : %d\n3 : %d\n4 : %d\n5 : %d\n6 : %d\n",a,b,c,d,e,f);
+    if(brelant(des) == 6) {
+        int tmp = 0;
+        int des1 = 0;
+        int des2 = 0;
+        for (int i = 0; i < 5; i++) {
+            if (des[i] != 2) {
+                if (tmp == 1) {
+                    des2 = des[i];
+                }
+                des1 = des[i];
+                tmp = 1;
+            }
+        }
+        if (des1 == des2) {
+            score = 25;
+        } else {
+            score = 0;
+        }
+    }else{
+        score = 0;
+    }
+    if(brelant(des) == 9) {
+        int tmp = 0;
+        int des1 = 0;
+        int des2 = 0;
+        for (int i = 0; i < 5; i++) {
+            if (des[i] != 3) {
+                if (tmp == 1) {
+                    des2 = des[i];
+                }
+                des1 = des[i];
+                tmp = 1;
+            }
+        }
+        if (des1 == des2) {
+            score = 25;
+        } else {
+            score = 0;
+        }
+    }else{
+        score = 0;
+    }
+    if(brelant(des) == 12) {
+        int tmp = 0;
+        int des1 = 0;
+        int des2 = 0;
+        for (int i = 0; i < 5; i++) {
+            if (des[i] != 4) {
+                if (tmp == 1) {
+                    des2 = des[i];
+                }
+                des1 = des[i];
+                tmp = 1;
+            }
+        }
+        if (des1 == des2) {
+            score = 25;
+        } else {
+            score = 0;
+        }
+    }else{
+        score = 0;
+    }
+    if(brelant(des) == 15) {
+        int tmp = 0;
+        int des1 = 0;
+        int des2 = 0;
+        for (int i = 0; i < 5; i++) {
+            if (des[i] != 5) {
+                if (tmp == 1) {
+                    des2 = des[i];
+                }
+                des1 = des[i];
+                tmp = 1;
+            }
+        }
+        if (des1 == des2) {
+            score = 25;
+        } else {
+            score = 0;
+        }
+    }else{
+        score = 0;
+    }
+    if(brelant(des) == 18) {
+        int tmp = 0;
+        int des1 = 0;
+        int des2 = 0;
+        for (int i = 0; i < 5; i++) {
+            if (des[i] != 6) {
+                if (tmp == 1) {
+                    des2 = des[i];
+                }
+                des1 = des[i];
+                tmp = 1;
+            }
+        }
+        if (des1 == des2) {
+            score = 25;
+        } else {
+            score = 0;
+        }
+    }else{
+        score = 0;
+    }
     printf("Score + %d \n", score);
     return score;
 }
-
 
 int yams(int des[]) {
     int score = 0;
@@ -315,40 +391,6 @@ int grande_suite(int des[])
     }
     return score;
 }
-
-/*int* lancer_joueur() {
-    int des[5];
-        // premier lancer
-        for (int i = 0; i < NB_DES; ++i) {
-            des[i] = lancer_des();
-        }
-    afficher_des(des);
-    // relance pour le second tour
-    int choice;
-    int cptT2 = 0;
-    printf("Second turn\nSelect the dice you want to run again (1 to 5) - 0 to go on 3rd turn : \n");
-    do {
-        scanf("%d", &choice);
-        if (choice > 0 && choice < 6) {
-            des[choice - 1] = lancer_des();
-        }
-        cptT2++;
-    } while (choice != 0 && cptT2 < 6);
-    afficher_des(des);
-    // relance pour le troisieme tour
-    int cptT3 = 0;
-    printf("third turn\nSelect the dice you want to run again (1 to 5) - 0 to finish : \n");
-    do {
-        scanf("%d", &choice);
-        if (choice > 0 && choice < 6) {
-            des[choice - 1] = lancer_des();
-        }
-        cptT3++;
-    } while (choice != 0 && cptT3 < 6);
-    afficher_des(des);
-    return des;
-}
-*/
 
 void checkMilieuPartie(int* scoreA, int* scoreB) {
     int* a = scoreA;
