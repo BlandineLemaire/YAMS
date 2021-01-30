@@ -80,8 +80,6 @@ int brelant(int des[]) {
                 break;
         }
     }
-    //printf("1 : %d\n2 : %d\n3 : %d\n4 : %d\n5 : %d\n6 : %d\n",a,b,c,d,e,f);
-    printf("Score + %d \n", score);
     return score;
 }
 
@@ -134,142 +132,31 @@ int carre(int des[]) {
                 break;
         }
     }
-    //printf("1 : %d\n2 : %d\n3 : %d\n4 : %d\n5 : %d\n6 : %d\n",a,b,c,d,e,f);
-    printf("Score + %d \n", score);
     return score;
 }
 
-// FULL
-
-int full(int des[]) {
+int full(int des[]){
     int score = 0;
-    if(brelant(des) == 3) {
-        int tmp = 0;
-        int des1 = 0;
-        int des2 = 0;
-        for (int i = 0; i < 5; i++) {
-            if (des[i] != 1) {
-                if (tmp == 1) {
-                    des2 = des[i];
+    for (int j = 0; j < 6; j++){
+        if (brelant(des) == (3*j) && score == 0){
+            printf("yes, brelant\n");
+            int tmp = 0;
+            int des1 = 0;
+            int des2 = 0;
+            for (int i = 0; i < 5; i++){
+                if (des[i] != j){
+                    if (tmp == 0){
+                        des1 = des[i];
+                        tmp = 1;
+                    }else{
+                        des2 = des[i];
+                    }
                 }
-                des1 = des[i];
-                tmp = 1;
+            }if (des1 == des2){
+                score = 25;
             }
         }
-        if (des1 == des2) {
-            score = 25;
-        } else {
-            score = 0;
-        }
-    }else{
-        score = 0;
     }
-    if(brelant(des) == 6) {
-        int tmp = 0;
-        int des1 = 0;
-        int des2 = 0;
-        for (int i = 0; i < 5; i++) {
-            if (des[i] != 2) {
-                if (tmp == 1) {
-                    des2 = des[i];
-                }
-                des1 = des[i];
-                tmp = 1;
-            }
-        }
-        if (des1 == des2) {
-            score = 25;
-        } else {
-            score = 0;
-        }
-    }else{
-        score = 0;
-    }
-    if(brelant(des) == 9) {
-        int tmp = 0;
-        int des1 = 0;
-        int des2 = 0;
-        for (int i = 0; i < 5; i++) {
-            if (des[i] != 3) {
-                if (tmp == 1) {
-                    des2 = des[i];
-                }
-                des1 = des[i];
-                tmp = 1;
-            }
-        }
-        if (des1 == des2) {
-            score = 25;
-        } else {
-            score = 0;
-        }
-    }else{
-        score = 0;
-    }
-    if(brelant(des) == 12) {
-        int tmp = 0;
-        int des1 = 0;
-        int des2 = 0;
-        for (int i = 0; i < 5; i++) {
-            if (des[i] != 4) {
-                if (tmp == 1) {
-                    des2 = des[i];
-                }
-                des1 = des[i];
-                tmp = 1;
-            }
-        }
-        if (des1 == des2) {
-            score = 25;
-        } else {
-            score = 0;
-        }
-    }else{
-        score = 0;
-    }
-    if(brelant(des) == 15) {
-        int tmp = 0;
-        int des1 = 0;
-        int des2 = 0;
-        for (int i = 0; i < 5; i++) {
-            if (des[i] != 5) {
-                if (tmp == 1) {
-                    des2 = des[i];
-                }
-                des1 = des[i];
-                tmp = 1;
-            }
-        }
-        if (des1 == des2) {
-            score = 25;
-        } else {
-            score = 0;
-        }
-    }else{
-        score = 0;
-    }
-    if(brelant(des) == 18) {
-        int tmp = 0;
-        int des1 = 0;
-        int des2 = 0;
-        for (int i = 0; i < 5; i++) {
-            if (des[i] != 6) {
-                if (tmp == 1) {
-                    des2 = des[i];
-                }
-                des1 = des[i];
-                tmp = 1;
-            }
-        }
-        if (des1 == des2) {
-            score = 25;
-        } else {
-            score = 0;
-        }
-    }else{
-        score = 0;
-    }
-    printf("Score + %d \n", score);
     return score;
 }
 
@@ -322,8 +209,6 @@ int yams(int des[]) {
                 break;
         }
     }
-    //printf("1 : %d\n2 : %d\n3 : %d\n4 : %d\n5 : %d\n6 : %d\n",a,b,c,d,e,f);
-    printf("Score + %d \n", score);
     return score;
 }
 
@@ -344,50 +229,48 @@ int check_doublons(int des[])
 int petite_suite(int des[])
 {
     int score = 0;
-    check_doublons(des);
     tri_tableau(des);
-
-    if (check_doublons == 0)
+    if (des[0] == 1 && des[3] == 4)
     {
-        if (des[0] == 1 && des[3] == 4)
-        {
-            printf("This is a small straight\n");
-            score = 30;
-        }
-        else if (des[0] == 2 && des[3] == 5)
-        {
-            printf("This is a small straight\n");
-            score = 30;
-        }
-        else if (des[1] == 2 && des[4] == 5)
-        {
-            printf("This is a small straight\n");
-            score = 30;
-        }
-        else if (des[2] == 3 && des[5] == 6)
-        {
-            printf("This is a small straight\n");
-            score = 30;
-        }
+        printf("This is a small straight\n");
+        score = 30;
     }
+    else if (des[0] == 2 && des[3] == 5)
+    {
+        printf("This is a small straight\n");
+        score = 30;
+    }
+    else if (des[1] == 2 && des[4] == 5)
+    {
+        printf("This is a small straight\n");
+        score = 30;
+    }
+    else if (des[2] == 3 && des[5] == 6)
+    {
+        printf("This is a small straight\n");
+        score = 30;
+    }
+
     return score;
 }
 
 int grande_suite(int des[])
 {
     int score = 0;
-    check_doublons(des);
+    int check = -1;
+    check = check_doublons(des);
     tri_tableau(des);
-
-    if (des[0] == 1 && des[4] == 5)
-    {
-        printf("This is a small straight\n");
-        score = 40;
-    }
-    else if (des[0] == 2 && des[4] == 6)
-    {
-        printf("This is a small straight\n");
-        score = 40;
+    if (check == 0){
+        if (des[0] == 1 && des[4] == 5)
+        {
+            printf("This is a large straight\n");
+            score = 40;
+        }
+        else if (des[0] == 2 && des[4] == 6)
+        {
+            printf("This is a large straight\n");
+            score = 40;
+        }
     }
     return score;
 }
@@ -408,6 +291,42 @@ int chance(int des[]) {
     for (int i = 0; i < NB_DES; ++i) {
         score += des[i];
     }
+    return score;
+}
+
+int checkFigure(int des[]) {
+    int score = 0;
+    if (yams(des) == 0) {
+        if (carre(des) == 0) {
+            if (full(des) == 0) {
+                if (brelant(des) == 0) {
+                    if (grande_suite(des) == 0) {
+                        if (petite_suite(des) == 0) {
+                            score = chance(des);
+                        }
+                        else {
+                            score = petite_suite(des);
+                        }
+                    }
+                    else {
+                        score = grande_suite(des);
+                    }
+                }
+                else {
+                    score = brelant(des);
+                }
+            }
+            else {
+                score = full(des);
+            }
+        }
+        else {
+            score = carre(des);
+        }
+    }
+    else {
+        score = yams(des);
+    }
     printf("Score + %d", score);
     return score;
 }
@@ -419,62 +338,9 @@ int tour() {
     lancer_joueur(des);
     // Tri des valeurs
     tri_tableau(des);
-    // rechercge des differents points possibles
-    if (brelant(des) > 0) {
-        score = brelant(des);
-    }
-    if (carre(des) > 0) {
-        score = carre(des);
-    }
-    if (petite_suite(des) > 0) {
-        score = petite_suite(des);
-    }
-    if (grande_suite(des) > 0) {
-        score = grande_suite(des);
-    }
-    if (yams(des) > 0) {
-        score = yams(des);
-    }
-    if (score = 0) {
-        score = chance(des);
-    }
+    // recherche des differents points possibles
+    score = checkFigure(des);
     return score;
-}
-
-int checkFigure(int des[]) {
-    int scoreA = 0;
-    if (yams(des) == 0) {
-        if (carre(des) == 0) {
-            if (full(des) == 0) {
-                if (brelant(des) == 0) {
-                    if (grande_suite(des) == 0) {
-                        if (petite_suite(des) == 0) {
-                            scoreA = chance(des);
-                        }
-                        else {
-                            scoreA = petite_suite(des);
-                        }
-                    }
-                    else {
-                        scoreA = grande_suite(des);
-                    }
-                }
-                else {
-                    scoreA = brelant(des);
-                }
-            }
-            else {
-                scoreA = full(des);
-            }
-        }
-        else {
-            scoreA = carre(des);
-        }
-    }
-    else {
-        scoreA = yams(des);
-    }
-    return scoreA;
 }
 
 int lancer_joueur() {
@@ -512,7 +378,7 @@ int lancer_joueur() {
     score = checkFigure(des);
     return score;
 }
-/*
+
 void save(char* nom, int scorePartie) {
     int num;
     FILE* fichier;
@@ -534,4 +400,4 @@ void save(char* nom, int scorePartie) {
     // Ecrtiture du score de la partie :
     fprintf(fichier, "score de la partie : %d", scorePartie);
     fclose(fichier);
-}*/
+}

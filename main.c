@@ -38,7 +38,7 @@ int main(void)
     printf("Saisir les informations du joueur A\n");
     printf("Pseudo : ");
     *&joueurA.pseudo = (char*)malloc(sizeof(char) * 20);
-    scanf("%s", *&joueurA.pseudo);
+    scanf("%s", *&joueurB.pseudo);
 
 
     printf("%s", *&joueurA.pseudo);
@@ -56,7 +56,7 @@ int main(void)
         printf("----------------------------------------\n");
         // Tour du joueur 1
         printf("\n----------------------------------------\n");
-        printf("Tour du joueur 1\n");
+        printf("Tour de : %s\n",joueurA.pseudo);
         printf("----------------------------------------\n");
         // Initialisation de ses valeurs et demande s'il souhaite en changer
         scoreTourJoueurA = lancer_joueur();
@@ -64,7 +64,7 @@ int main(void)
         joueurA.scorePartie = joueurA.scorePartie + scoreTourJoueurA;
         // Tour du joueur 2
         printf("\n----------------------------------------\n");
-        printf("Tour du joueur 2\n");
+        printf("Tour de : %s\n",joueurB.pseudo);
         printf("----------------------------------------\n");
         // Initialisation de ses valeurs et demande s'il souhaite en changer
         scoreTourJoueurB = lancer_joueur();
